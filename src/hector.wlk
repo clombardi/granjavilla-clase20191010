@@ -2,7 +2,7 @@ import wollok.game.*
 import cultivos.*
 
 object hector {
-	var property position = new Position(x = 3, y = 8)
+	var property position = new Position(x = 9, y = 0)
 	var property image = "player.png"
 	var property plantasCosechadas = []
 	
@@ -31,4 +31,33 @@ object hector {
 	method cantidadDePlantasCosechadas() {
 		return plantasCosechadas.size()
 	}
+
+	method moveteALaIzquierda() {
+		if (position.x() > 0) {
+			position = position.left(1)
+		} else {
+			game.say(self, "estoy en el borde ameo")
+		}
+	}	
+
+	method moveteHaciaArriba() {
+		// height es altura, width es ancho
+		if (position.y() < game.height() - 1) {
+			position = position.up(1)
+		}
+	}	
+
+	method moveteALaDerecha() {
+		if (position.x() > 0) {
+			position = position.left(1)
+		}
+	}	
+
+	method moveteHaciaAbajo() {
+		// height es altura, width es ancho
+		if (position.y() < game.height() - 1) {
+			position = position.up(1)
+		}
+	}	
+	
 }
